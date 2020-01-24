@@ -10,7 +10,7 @@ if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 # Pulls serial from BIOS info and uses as a variable to assign a new computer name.
 # WARNING: This works best on brand names like HP, Dell, etc.
 $s = (gwmi win32_bios).SerialNumber
-$newname = ("DMA-" + $s + "v2")
+$newname = ("PC-" + $s) # Adjust as needed
 Rename-Computer -NewName ($newname)
 # Install chocolatey to allow easier app install in the future
 Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest https://chocolatey.org/install.ps1 -UseBasicParsing | Invoke-Expression
